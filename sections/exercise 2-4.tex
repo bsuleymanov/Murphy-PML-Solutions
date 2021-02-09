@@ -1,0 +1,48 @@
+We will first consider one-dimensional “rectangles” (i.e., lines); since the dimensions are independent, we can
+easily generalize to 2d. \\
+For convenience, we will follow the notation of Josh Tenenbaum’s PhD thesis. In particular, let $h = \boldsymbol\theta$
+be the unknown hypothesis or parameter vector, $\mathcal{H}$ be the set of possible hypotheses (rectangles), $\mathcal{H}_y$ be the
+set of hypotheses consistent with observation $y$ (so the rectangles have to be big enough to capture $y$), and
+$\mathcal{H}_{\mathcal{D}, y}$ be the set of hypotheses consistent with all the examples in $\mathcal{D}$ as well as with $y$. \\
+The posterior predictive is given by $p(y|\mathcal{D})=\frac{p(y, \mathcal{D})}{p(\mathcal{D})}$, where 
+
+\begin{flalign}
+p(\mathcal{D}) = \int_{h \in \mathcal{H}}p(h)p(\mathcal{D}|h)dh
+= \int_{h \in \mathcal{H}}p(h)/|h|^Ndh
+\end{flalign} where we used the fact that $p(\mathcal{D}|h)=1/|h|^N$ if $h \in \mathcal{H}_\mathcal{D}$ and is 0 otherwise. Similarly, $p(y, \mathcal{D}) = \int_{h \in \mathcal{H}_{\mathcal{D}, y}}p(h)/|h|^Ndh$. \\
+To derive the integral in Equation 1, let us assume the maximum observed value is 0 (we can pick any
+maximum and recenter the data, since we assume a translation invariant prior). Then the right edge of the
+rectangle must lie past the data, so $l \ge 0$. Also, if $r$ is the range spanned by the examples, then the left most
+data point is at $-r$, so the left side of the rectangle must satisfy $l - s \le r$, where $s$ is size of the rectangle. \\ \\
+a. Using these assumptions, show that
+
+\begin{align*}
+p(\mathcal{D}) = \frac{1}{N(N-1)r^{N-1}} 
+\end{align*}
+\\
+Hint: use integration by parts
+\begin{align*}
+I = \int_{a}^{b} f(x)g'(x)dx = [f(x)g(x)]_a^b - \int_a^b f'(x)g(x)dx
+\end{align*}
+\\
+b. To compute $p(y, \mathcal{D})$, we just need to extend the range from $r$ to $r + d$, where $d$ is the distance from $y$ to
+the closest observed example. Hence show that
+\begin{align*}
+p(y|\mathcal{D}) = \frac{1}{(1+d/r)^{N-1}}
+\end{align*}
+\\ \\
+\textbf{Solution} \\
+\begin{align*}
+p(\mathcal{D}) &= \int_{h \in \mathcal{H}}p(h)/|h|^Ndh \\
+&= \int_{s=r}^{\infty}\left[\int_{l=0}^{s-r}p(s)/s^ndl\right]ds \\
+&= \int_{s=r}^{\infty}\frac{1}{s^{n+1}}(s-r)ds \\
+&= \int_{s=r}^{\infty}\frac{s-r}{s^{n+1}}ds
+\end{align*}
+\\
+Let's substitute: 
+\begin{align*}
+    f(s) &= s - r \\
+    f'(s) &= 1 \\
+    g'(s) &= s^{-n-1} \\
+    g(s) &= \frac{s^{-n}}{-n}
+\end{align*}

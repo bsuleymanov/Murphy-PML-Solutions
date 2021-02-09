@@ -1,0 +1,21 @@
+Suppose a crime has been committed. Blood is found at the scene for which there is no
+innocent explanation. It is of a type which is present in 1\% of the population. \\ \\
+a. The prosecutor claims: “There is a 1\% chance that the defendant would have the crime blood type if he
+were innocent. Thus there is a 99\% chance that he is guilty”. This is known as the prosecutor’s fallacy.
+What is wrong with this argument?\\ \\
+b. The defender claims: “The crime occurred in a city of 800,000 people. The blood type would be found in
+approximately 8000 people. The evidence has provided a probability of just 1 in 8000 that the defendant
+is guilty, and thus has no relevance.” This is known as the defender’s fallacy. What is wrong with this
+argument?
+\\ \\
+\textbf{Solution} \\
+a. Let a variable M stands for blood type match and a variable I stands for innocent. Full probability of having this blood type is 1\%: $\Pr(M=1) = 0.01$.
+\begin{flalign*}
+\Pr(M=1) &= \Pr(M=1|I=0)\Pr(I=0) + \Pr(M=1|I=1)\Pr(I=1) \\
+&= 0.01. &&
+\end{flalign*}
+We know that $
+\Pr(I=0|M=1) \propto \Pr(M=1|I=0)\Pr(M=1).$
+And the prosecutor says nothing about $\Pr(M=1|I=0)$, he talks just about prior $\Pr(M=1)$.
+\\ \\
+b. The defender says that $\Pr(I=1|M=1) = \frac{1}{8000}.$ It is true, but a defendant is not picked uniform randomly from the whole population (I hope so). But since there may be some other evidences, we must take all the evidences (including blood type) into account.

@@ -1,0 +1,19 @@
+After your yearly checkup, the doctor has bad news and good news. The bad news is that you tested positive
+for a serious disease, and that the test is 99\% accurate (i.e., the probability of testing positive given that you
+have the disease is 0.99, as is the probability of testing negative given that you don’t have the disease). The
+good news is that this is a rare disease, striking only one in 10,000 people. What are the chances that you
+actually have the disease? (Show your calculations as well as giving the final result.)
+\\ \\
+\textbf{Solution} \\
+Let $T$ be a binary variable that stands for test positiveness and $D$ be a binary variable that stands for having the disease. Accuracy of the test is 99\%, which means: $\Pr(T=1|D=1) = 0.99 \text{ and } \Pr(T=0|D=0) = 0.99.$ \\
+$Pr(D=1) = 10^{-4}.$ Our task is to find $\Pr(D=1|T=1)$. \\ \\
+According to Bayes' rule, we have
+
+\begin{flalign*}
+\Pr(D=1|T=1) &= \frac{\Pr(T=1|D=1)\Pr(D=1)}{Pr(T=1)} \\
+& = \frac{\Pr(T=1|D=1)\Pr(D=1)}{\Pr(T=1|D=1)\Pr(D=1) + \Pr(T=1|D=0)\Pr(D=0)}. &&
+\end{flalign*} 
+
+\begin{flalign*}
+\Pr(D=1|T=1) = \frac{0.99 \cdot 10^{-4}}{0.99 \cdot 10^{-4} + 0.01 \cdot 0.9999} \approx 0.0098. &&
+\end{flalign*}

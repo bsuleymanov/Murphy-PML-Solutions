@@ -1,0 +1,12 @@
+My neighbor has two children. Assuming that the gender of a child is like a coin flip,
+it is most likely, a priori, that my neighbor has one boy and one girl, with probability 1/2. The other
+possibilities—two boys or two girls—have probabilities 1/4 and 1/4. \\ \\
+a. Suppose I ask him whether he has any boys, and he says yes. What is the probability that one child is a
+girl? \\ \\
+b. Suppose instead that I happen to see one of his children run by, and it is a boy. What is the probability
+that the other child is a girl?
+\\ \\
+\textbf{Solution} \\
+The whole sample space is {(G, G), (B, G), (G, B), (B, B)}, where B is for boy and G is for girl.\\\\
+a. Since one of the children is a boy, (G, G) is impossible. And we have 3 out of 4 outcomes. And G is in 2 of the outcomes. Thus\\ $\Pr(Child_i=G|Child_j=B) = \frac{2}{3}$, where $i, j \in \{1, 2\}$ and $i \neq j$.\\\\
+b. Let the first child be the one, who author have already seen: $Child_1 = B$. $\Pr(Child_2=G|Child_1=B) = \Pr(Child_2=G) = \frac{1}{2}$, because of assumption of conditional independence of children's gender.
