@@ -32,6 +32,7 @@ p(y|\mathcal{D}) = \frac{1}{(1+d/r)^{N-1}}
 \end{align*}
 \\ \\
 \textbf{Solution} \\
+a.
 \begin{align*}
 p(\mathcal{D}) &= \int_{h \in \mathcal{H}}p(h)/|h|^Ndh \\
 &= \int_{s=r}^{\infty}\left[\int_{l=0}^{s-r}p(s)/s^ndl\right]ds \\
@@ -45,4 +46,20 @@ Let's substitute:
     f'(s) &= 1 \\
     g'(s) &= s^{-n-1} \\
     g(s) &= \frac{s^{-n}}{-n}
+\end{align*}
+By integrating by parts we have
+\begin{align*}
+    p(\mathcal{D}) &= \left[\frac{(s-r)s^{-n}}{-n}\right]_r^\infty - \int_r^\infty \frac{s^{-n}}{-n}ds \\
+    &= \left[\frac{s^{-n+1}}{-n} + \frac{rs^{-n}}{n} + \frac{1}{n}\frac{s^{-n+1}}{-n+1}\right]_r^\infty \\
+    &= \frac{r^{-n+1}}{n} - \frac{rr^{-n}}{n} + \frac{r^{-n+1}}{n(n-1)} \\
+    &= \frac{1}{nr^{n-1}} - \frac{r}{nr^{n-1}r} + \frac{1}{n(n-1)r^{n-1}} \\
+    &= \frac{1}{n(n-1)r^{n-1}}
+\end{align*} \\
+b. Let $d$ be the distance from $y$ to the closest observed example if $y \notin \mathcal{D}$ and $0$ else:
+\begin{align*}
+p(y|\mathcal{D}) &= \frac{p(\mathcal{D}, y)}{p(\mathcal{D})} \\
+&= \frac{\int_{h \in \mathcal{H}, y}p(h)/|h|^Ndh}{\int_{h \in \mathcal{H}}p(h)/|h|^Ndh} \\
+&= \frac{\frac{1}{n(n-1)r^{n-1}}}{\frac{1}{n(n-1)(r+d)^{n-1}}} \\
+&= \frac{r^{n-1}}{(r+d)^{n-1}} \\
+&= \frac{1}{(1 + d/r)^{n-1}}
 \end{align*}
